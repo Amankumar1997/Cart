@@ -6,8 +6,30 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* stylin for all the cart item */
+.cart-item{
+  display: inline-block;
+  margin: 20px 10px;
 }
+
+/* styling for cart item in right block */
+.cart-item .right-block{
+
+  /* top and bottom paddings are 0
+right and left paddings are 20px */
+  padding: 0 20px;
+}
+/* style for actions like dlete add  */
+.cart-item-actions{
+  margin-top: 20px;
+}
+/*action par jo style krni hai vo  */
+.action-icons {
+  height: 25px;
+  width: 25px;
+  margin-right: 10px;
+}
+.action-icons:hover {
+  cursor: pointer;
+}
+
