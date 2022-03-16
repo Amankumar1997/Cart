@@ -7,8 +7,8 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 /* stylin for all the cart item */
-.cart-item{
-  display: inline-block;
+.cart-item {
+  display: inline-flex;
   margin: 20px 10px;
 }
 
@@ -19,6 +19,10 @@ body {
 right and left paddings are 20px */
   padding: 0 20px;
 }
+
+
+
+
 /* style for actions like dlete add  */
 .cart-item-actions{
   margin-top: 20px;
