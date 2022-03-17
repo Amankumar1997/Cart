@@ -13,7 +13,20 @@ this.state={
     img:''
 
 }
+//  bind increase quantity function
+// this.increaseQuantity=this.increaseQuantity.bind(this);
+
     }
+
+
+    // function for increasing quantity of  product
+    increaseQuantity= ()=>
+    {
+         console.log('this.state',this.state);
+    }
+
+
+
     render()
     {
         const {price,title,qty}=this.state;
@@ -33,7 +46,10 @@ this.state={
             <div style={{color:'#777'}}>Qty: {qty}</div>
             <div className='cart-item-actions'>
             {/*  here we have 3 img buttons icrease quantity decrease the quantity and delete  */}
-            <img alt="increase" className='action-icons' src='https://cdn-icons-png.flaticon.com/512/992/992651.png'></img>
+            <img onClick={this.increaseQuantity} alt="increase" className='action-icons' src='https://cdn-icons-png.flaticon.com/512/992/992651.png'></img>
+         
+         
+         
           <img alt="decrease" className='action-icons' src='https://cdn-icons-png.flaticon.com/512/992/992683.png'></img>
           <img alt="delete" className='action-icons' src='https://cdn-icons-png.flaticon.com/512/3096/3096673.png'></img>
           
