@@ -34,11 +34,34 @@ this.state={
     }
         }) ;
 
-       
+        console.log(this.state);
+         
+    }
+     // function for decreasing quantity of  product
+    decreaseQuantity= ()=>
+    {
+        const { qty }=this.state;
+        if(qty==0)
+        {
+            return;
+        }
+        // form 1 one way to dcrease quantity
+        // this.setState({
+        //     qty:this.state.qty-=1
+        // })
+
+        // form 2 second way state decrese crease quntity
+        this.setState((prevState) =>{// this fn says adding quanty in prevstate 
+      return {
+        qty:prevState.qty-1
+    }});
 
         console.log(this.state);
          
     }
+
+
+
 
 
 
@@ -65,7 +88,7 @@ this.state={
          
          
          
-          <img alt="decrease" className='action-icons' src='https://cdn-icons-png.flaticon.com/512/992/992683.png'></img>
+          <img  onClick={this.decreaseQuantity}  alt="decrease" className='action-icons' src='https://cdn-icons-png.flaticon.com/512/992/992683.png'></img>
           <img alt="delete" className='action-icons' src='https://cdn-icons-png.flaticon.com/512/3096/3096673.png'></img>
           
             </div>
