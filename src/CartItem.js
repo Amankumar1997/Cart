@@ -22,7 +22,22 @@ this.state={
     // function for increasing quantity of  product
     increaseQuantity= ()=>
     {
-         console.log('this.state',this.state);
+        // form 1 one way to increase quantity
+        // this.setState({
+        //     qty:this.state.qty+=1
+        // })
+
+        // form 2 second way state increase quntity
+        this.setState((prevState) =>{// this fn says adding quanty in prevstate 
+      return {
+        qty:prevState.qty+1
+    }
+        }) ;
+
+       
+
+        console.log(this.state);
+         
     }
 
 
