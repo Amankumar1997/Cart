@@ -36,4 +36,9 @@ right and left paddings are 20px */
 .action-icons:hover {
   cursor: pointer;
 }
+.cart{
+
+  display: flex;
+  flex-direction: column;
+}
 

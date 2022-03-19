@@ -1,4 +1,5 @@
 import React from 'react';
+import Cart from './Cart';
 
 // creating a componet 
 class CartItem extends React.Component{
@@ -26,6 +27,7 @@ this.state={
         // this.setState({
         //     qty:this.state.qty+=1
         // })
+
 
         // form 2 second way state increase quntity
         this.setState((prevState) =>{// this fn says adding quanty in prevstate 
