@@ -3,21 +3,21 @@ import Cart from './Cart';
 
 // creating a componet 
 class CartItem extends React.Component{
-//  we define state adding state 
-    constructor()
-    {
-        super();
-this.state={
-    price:999,
-    title:'Phone',
-    qty:1,
-    img:''
+// //  we define state adding state 
+//     constructor()
+//     {
+//         super();
+// this.state={
+//     price:999,
+//     title:'Phone',
+//     qty:1,
+//     img:''
 
-}
-//  bind increase quantity function
-// this.increaseQuantity=this.increaseQuantity.bind(this);
+// }
+// //  bind increase quantity function
+// // this.increaseQuantity=this.increaseQuantity.bind(this);
 
-    }
+//     }
 
 
     // function for increasing quantity of  product
@@ -69,7 +69,8 @@ this.state={
 
     render()
     {
-        const {price,title,qty}=this.state;
+        console.log('this.props',this.props)
+        const {price,title,qty}=this.props.product;
         
         return(
 
