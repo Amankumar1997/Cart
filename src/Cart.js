@@ -42,6 +42,21 @@ this.state={
 
     }
 
+//  this is function for increasing quatity
+handleIncreaseQuantity=(product)=>{
+console.log("hey increase the quantity of product",product);
+//phle hume product chahiye jiski quantity increase  krna hai
+const {products}=this.state;
+//  we neeed index of product for incresing thirer quantity
+const index=products.indexOf(product);
+
+products[index].qty+=1;
+this.setState({
+    products:products
+})
+
+}
+
 
     render()
     {
@@ -49,14 +64,15 @@ this.state={
   return(
  
       <div className="cart">
-
-         {products.map((product)=>{
-
-  return 
+        {products.map((product)=>{
+         return (
   <CartItem 
   product={product}
-   key={product.id}/>
-        })}
+   key={product.id}
+//    we passing ass a prop onincrease quanity
+   onIncreaseQuantity={this.handleIncreaseQuantity}
+   />
+         ) })}
 </div>
 
   );
