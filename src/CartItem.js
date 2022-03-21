@@ -10,7 +10,7 @@ class CartItem extends React.Component{
     {
         console.log('this.props',this.props)
         const {price,title,qty}=this.props.product;
-        
+        const {product ,onIncreaseQuantity,onDecreaseQuantity}=this.props;
         return(
 
            
@@ -31,6 +31,7 @@ class CartItem extends React.Component{
              src='https://cdn-icons-png.flaticon.com/512/992/992651.png'
             //  when user click i simply call the oncrease function
              onClick={()=>
+                // you can also this as welll  onIncreaseQuantity(product) niche vali line ki bjay
                  this.props.onIncreaseQuantity(this.props.product)
              }
            ></img>
@@ -41,7 +42,8 @@ class CartItem extends React.Component{
           className='action-icons'
            src='https://cdn-icons-png.flaticon.com/512/992/992683.png'
            onClick={()=>{
-            this.props.onDecreaseQuantity(this.props.product)
+            //    here i am giving accebilty to
+          onDecreaseQuantity(product)
            }
         }
            ></img>

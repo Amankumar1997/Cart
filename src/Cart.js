@@ -84,6 +84,9 @@ handleDecreaseQuantity=(product)=>{
       }
 
 
+//  function for deleting 
+
+
     render()
     {
         const {products}=this.state; 
