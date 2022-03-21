@@ -3,17 +3,21 @@ import Cart from './Cart';
 
 
 // creating a componet 
-class CartItem extends React.Component{
 
+const CartItem=(props)=>{
 
-    render()
-    {
-        console.log('this.props',this.props)
-        const {price,title,qty}=this.props.product;
-        const {product ,onIncreaseQuantity,onDecreaseQuantity}=this.props;
+   
+       
+        const {price,title,qty}=props.product;
+        const {product ,
+            onIncreaseQuantity,
+            onDecreaseQuantity,
+            onDeleteProduct
+        }=props;
+        
+        
         return(
 
-           
             <div className="cart-item" >
         <div className='left-block'>
         <img  style={styles.image}/>
@@ -32,7 +36,7 @@ class CartItem extends React.Component{
             //  when user click i simply call the oncrease function
              onClick={()=>
                 // you can also this as welll  onIncreaseQuantity(product) niche vali line ki bjay
-                 this.props.onIncreaseQuantity(this.props.product)
+                 props.onIncreaseQuantity(props.product)
              }
            ></img>
          
@@ -49,7 +53,14 @@ class CartItem extends React.Component{
            ></img>
 
 
-          <img alt="delete" className='action-icons' src='https://cdn-icons-png.flaticon.com/512/3096/3096673.png'></img>
+          <img alt="delete" 
+          className='action-icons' 
+          src='https://cdn-icons-png.flaticon.com/512/3096/3096673.png'
+          onClick={()=>{
+            //    here i am giving accebilty to
+            onDeleteProduct(product.id)
+           }}
+          ></img>
           
             </div>
 
@@ -62,7 +73,7 @@ class CartItem extends React.Component{
         
     }
     
-}
+
 
 const styles={
     image:{

@@ -85,6 +85,16 @@ handleDecreaseQuantity=(product)=>{
 
 
 //  function for deleting 
+    handleDeleteProduct= (id)=>{// we need id of this product for deleting it
+    
+        //  here ill get product first
+        const {products}=this.state;
+
+        const items= products.filter((item)=>item.id!==id);//ye mujhe dusra array dede ga jiski id iske braber na ho
+        this.setState({
+            products:items
+             });
+    }
 
 
     render()
@@ -101,6 +111,8 @@ handleDecreaseQuantity=(product)=>{
 //    we passing ass a prop onincrease quanity
    onIncreaseQuantity={this.handleIncreaseQuantity}
    onDecreaseQuantity={this.handleDecreaseQuantity}
+   onDeleteProduct={this.handleDeleteProduct}
+   
    />
          ) })}
 </div>
