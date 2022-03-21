@@ -42,20 +42,46 @@ this.state={
 
     }
 
+
+
+
+
 //  this is function for increasing quatity
-handleIncreaseQuantity=(product)=>{
-console.log("hey increase the quantity of product",product);
-//phle hume product chahiye jiski quantity increase  krna hai
-const {products}=this.state;
-//  we neeed index of product for incresing thirer quantity
-const index=products.indexOf(product);
+      handleIncreaseQuantity=(product)=>{
+           console.log("hey increase the quantity of product",product);
+             //phle hume product chahiye jiski quantity increase  krna hai
+               const {products}=this.state;
+                //  we neeed index of product for incresing thirer quantity
+                const index=products.indexOf(product);
 
-products[index].qty+=1;
-this.setState({
-    products:products
-})
+                products[index].qty+=1;
+                this.setState({
+                products:products
+                 });
 
-}
+             }
+
+
+
+//  this is function for decreasing quatity
+handleDecreaseQuantity=(product)=>{
+    console.log("hey decrease the quantity of product",product);
+      //phle hume product chahiye jiski quantity increase  krna hai
+        const {products}=this.state;
+         //  we neeed index of product for incresing thirer quantity
+         const index=products.indexOf(product);
+        
+      if( products[index].qty==0)
+      {
+          return;
+      }
+         products[index].qty-=1;
+         this.setState({
+         products:products
+          });
+      
+
+      }
 
 
     render()
@@ -71,6 +97,7 @@ this.setState({
    key={product.id}
 //    we passing ass a prop onincrease quanity
    onIncreaseQuantity={this.handleIncreaseQuantity}
+   onDecreaseQuantity={this.handleDecreaseQuantity}
    />
          ) })}
 </div>
