@@ -14,7 +14,7 @@ products:[
    { price:999,
 title:'Phone',
 qty:1,
-img:'',
+img:'https://images.unsplash.com/photo-1580910051074-3eb694886505?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTB8fHBob25lfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60',
 id:1
 },
 
@@ -22,14 +22,14 @@ id:1
 { price:99,
     title:'watch',
     qty:1,
-    img:'',
+    img:'https://media.istockphoto.com/photos/male-wristwatch-picture-id862529598?b=1&k=20&m=862529598&s=170667a&w=0&h=C-QutMJAbI0fvmYlOCH_2guWnR8FEET3WuFFdUTupVA=',
     id:2
 },
 
     { price:100,
         title:'jean',
         qty:1,
-        img:'',
+        img:'https://images.unsplash.com/photo-1542272604-787c3835535d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8amVhbnN8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60',
         id:3},
 
 
@@ -114,7 +114,18 @@ getCartCount =()=>{
 
 }
 
+//  function of total price
+getCartTotal =() =>{
+  const {products}=this.state;
+  let cartTotal=0;
+  
+  products.map((product) =>{
+    cartTotal+=product.qty*product.price
+  })
 
+
+  return cartTotal;
+}
 
   render(){
 //  we pass the product
@@ -133,7 +144,7 @@ const {products}=this.state;
    onDeleteProduct={this.handleDeleteProduct}
     
     />
-
+<div style={{padding :20,fontSize:20}}>Total:{this.getCartTotal()}</div>
     </div>
   );
 }
