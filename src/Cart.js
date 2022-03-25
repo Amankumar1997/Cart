@@ -1,126 +1,31 @@
 import React from 'react';
 import CartItem from './CartItem';
 // creating a componet 
-class Cart extends React.Component{
 
-//  we define state adding state 
-    constructor()
-    {
-        super();
-this.state={
-    products:[
-       { price:999,
-    title:'Phone',
-    qty:1,
-    img:'',
-    id:1
-},
+const Cart =(props)=>{
 
-   
-    { price:99,
-        title:'watch',
-        qty:1,
-        img:'',
-        id:2
-    },
-
-        { price:100,
-            title:'jean',
-            qty:1,
-            img:'',
-            id:3},
-
-
-
-
-    ]
     
-
-}
-//  bind increase quantity function
-// this.increaseQuantity=this.increaseQuantity.bind(this);
-
-    }
-
-
-
-
-
-//  this is function for increasing quatity
-      handleIncreaseQuantity=(product)=>{
-           console.log("hey increase the quantity of product",product);
-             //phle hume product chahiye jiski quantity increase  krna hai
-               const {products}=this.state;
-                //  we neeed index of product for incresing thirer quantity
-                const index=products.indexOf(product);
-
-                products[index].qty+=1;
-                this.setState({
-                products:products
-                 });
-
-             }
-
-
-
-//  this is function for decreasing quatity
-handleDecreaseQuantity=(product)=>{
-    console.log("hey decrease the quantity of product",product);
-      //phle hume product chahiye jiski quantity increase  krna hai
-        const {products}=this.state;
-         //  we neeed index of product for incresing thirer quantity
-         const index=products.indexOf(product);
-        
-      if( products[index].qty==0)
-      {
-          return;
-      }
-         products[index].qty-=1;
-         this.setState({
-         products:products
-          });
-      
-
-      }
-
-
-//  function for deleting 
-    handleDeleteProduct= (id)=>{// we need id of this product for deleting it
-    
-        //  here ill get product first
-        const {products}=this.state;
-
-        const items= products.filter((item)=>item.id!==id);//ye mujhe dusra array dede ga jiski id iske braber na ho
-        this.setState({
-            products:items
-             });
-    }
-
-
-    render()
-    {
-        const {products}=this.state; 
+        const {products}=props; 
   return(
  
-      <div className="cart">
+    <div className="cart">
         {products.map((product)=>{
          return (
   <CartItem 
   product={product}
    key={product.id}
 //    we passing ass a prop onincrease quanity
-   onIncreaseQuantity={this.handleIncreaseQuantity}
-   onDecreaseQuantity={this.handleDecreaseQuantity}
-   onDeleteProduct={this.handleDeleteProduct}
-   
+   onIncreaseQuantity={props.onIncreaseQuantity}
+   onDecreaseQuantity={props.onDecreaseQuantity}
+   onDeleteProduct={props.onDeleteProduct}
    />
-         ) })}
-</div>
+   )})}
+    </div>
 
   );
         
     }
     
-}
+
 
 export default Cart;
